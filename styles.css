@@ -1,0 +1,229 @@
+/*
+ * styles.css
+ *
+ * This stylesheet defines a clean and modern aesthetic inspired by
+ * premium tech brands. The palette is kept neutral with pops of blue
+ * for calls to action. Layouts are responsive and make use of flexbox
+ * and CSS grid to arrange content gracefully on any device.
+ */
+
+/* Root variables for easy theming */
+:root {
+  --color-primary: #007aff;        /* accent blue similar to Apple’s UI */
+  --color-text: #111111;          /* nearly black for crisp typography */
+  --color-muted: #666666;         /* muted grey for secondary text */
+  --color-bg: #ffffff;            /* page background */
+  --color-card-bg: #f9f9f9;       /* product card background */
+  --border-radius: 8px;
+  --transition-speed: 0.2s;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.5;
+}
+
+/* Container to constrain content width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--color-bg);
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.site-header .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.main-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  position: relative;
+}
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* Layout for header container: logo on left, nav on right */
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 0 3rem;
+}
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-text {
+  flex: 1 1 50%;
+}
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+.hero-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #005ecb;
+}
+.btn-secondary {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Products Section */
+.products {
+  padding: 3rem 0;
+  background-color: var(--color-bg);
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.product-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.product-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.product-card .price {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.product-card .description {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+/* About & Contact */
+.about, .contact {
+  padding: 3rem 0;
+  background-color: var(--color-card-bg);
+}
+.about p, .contact p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+.about a, .contact a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.about a:hover, .contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid #e5e5e5;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 0;
+  }
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+  .main-nav {
+    gap: 1rem;
+  }
+}
